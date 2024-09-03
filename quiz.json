@@ -1,0 +1,104 @@
+{
+    "quiz": [
+        {
+            "question": "What is the chemical symbol for water?",
+            "options": [
+                "O2",
+                "H2O",
+                "CO2",
+                "H2"
+            ],
+            "answer": "H2O"
+        },
+        {
+            "question": "Which planet is the hottest in our solar system?",
+            "options": [
+                "Mercury",
+                "Venus",
+                "Mars",
+                "Jupiter"
+            ],
+            "answer": "Venus"
+        },
+        {
+            "question": "What is the speed of light in a vacuum?",
+            "options": [
+                "300,000 km/s",
+                "150,000 km/s",
+                "450,000 km/s",
+                "600,000 km/s"
+            ],
+            "answer": "300,000 km/s"
+        },
+        {
+            "question": "Who is known as the father of modern computers?",
+            "options": [
+                "Alan Turing",
+                "Charles Babbage",
+                "Thomas Edison",
+                "Nikola Tesla"
+            ],
+            "answer": "Charles Babbage"
+        },
+        {
+            "question": "Which element is the most abundant in the Earth's atmosphere?",
+            "options": [
+                "Oxygen",
+                "Hydrogen",
+                "Carbon Dioxide",
+                "Nitrogen"
+            ],
+            "answer": "Nitrogen"
+        },
+        {
+            "question": "What is the most common type of star in the Milky Way?",
+            "options": [
+                "Red Dwarf",
+                "White Dwarf",
+                "Neutron Star",
+                "Supernova"
+            ],
+            "answer": "Red Dwarf"
+        },
+        {
+            "question": "Which technology is used to make telephone calls over the Internet possible?",
+            "options": [
+                "VPN",
+                "Bluetooth",
+                "VoIP",
+                "HTTP"
+            ],
+            "answer": "VoIP"
+        },
+        {
+            "question": "What does DNA stand for?",
+            "options": [
+                "Deoxyribonucleic Acid",
+                "Dynamic Nucleus Acid",
+                "Deoxyribonuclear Acid",
+                "Dual Nucleotide Array"
+            ],
+            "answer": "Deoxyribonucleic Acid"
+        },
+        {
+            "question": "Which programming language is primarily used for web development?",
+            "options": [
+                "JavaScript",
+                "Python",
+                "C++",
+                "Java"
+            ],
+            "answer": "JavaScript"
+        },
+        {
+            "question": "What is the powerhouse of the cell?",
+            "options": [
+                "Nucleus",
+                "Mitochondria",
+                "Ribosome",
+                "Chloroplast"
+            ],
+            "answer": "Mitochondria"
+        }
+    ]
+}
