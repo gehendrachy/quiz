@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link
     href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
     rel="stylesheet">
@@ -27,6 +28,15 @@
                 </div>
             </div>
             <div class="quiz-body"> 
+                <div class="quiz-overview">
+                    <p>Question 1/10</p>
+                    <p>
+                        Chances : 
+                        <span id="chance-icons">
+                            
+                        </span>
+                    </p>
+                </div>
                 <div class="module" id="start-module">
                     <div class="quiz info">
                         <p>
@@ -57,30 +67,30 @@
                             Which planet is the hottest in our solar system?
                         </div>
                         <ul id="quiz-answers">
-                            <li class="answer-1">
+                            <!-- <li class="options border-red" data-value="Mercury">
                                 <span class="bullet">A</span>
                                 <span class="option">Mercury</span>
                             </li>
-                            <li class="answer-2">
+                            <li class="options border-green" data-value="Venus">
                                 <span class="bullet">B</span>
                                 <span class="option">Venus</span>
                             </li>
-                            <li class="answer-3">
+                            <li class="options" data-value="Mars">
                                 <span class="bullet">C</span>
                                 <span class="option">Mars</span>
                             </li>
-                            <li class="answer-4">
+                            <li class="options" data-value="Jupiter">
                                 <span class="bullet">D</span>
                                 <span class="option">Jupiter</span>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
-                    
-                    <div id="submit-module">
+
+                    <!-- <div id="submit-module">
                         <div class="quiz footer">
                             <button onclick="stopQuiz()">Submit</button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 
             </div>
@@ -100,7 +110,6 @@
     </audio>
 </body>
 
-<script src="quiz.js">
-</script>
-
+<script src="quiz.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </html>

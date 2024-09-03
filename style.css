@@ -157,13 +157,21 @@ ul.quiz {
             
             
         }
-
+        
         li:hover {
             cursor: pointer;
-      box-shadow: 0 0.8rem 1.8rem 0 rgba(86, 185, 235, 0.5);
-      transform: translateY(-0.1rem);
-      transition: transform 400ms;
-          }
+            box-shadow: 0 0.8rem 1.8rem 0 rgba(86, 185, 235, 0.5);
+            transform: translateY(-0.1rem);
+            transition: transform 400ms;
+        }
+
+        li.border-green{
+            border: 2px green solid;
+        }
+
+        li.border-red{
+            border: 2px red solid;
+        }
     }
     
     
@@ -255,4 +263,12 @@ ul.quiz {
             background-color: 472836;
         }
     }
+}
+
+
+.quiz-overview{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
 }
