@@ -89,7 +89,7 @@
                         </div>
                     </div> -->
                 </div>
-
+                
                 <div class="module" id="score-module">
                     <div class="quiz info">
                         <p> 
@@ -97,34 +97,32 @@
                             <span id="score">___</span>
                         </p>
                         <button onclick="startQuiz()">Play Again</button>
-                        <button>Highscores</button>
+                        <button onclick="viewHighScores()">Highscores</button>
                     </div>
                 </div>
-
+                
                 <div class="module" id="highscore-module">
                     <div class="quiz info">
-                        <p> High Scores </p>
-                        <div class="highscore-details">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Score</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Milan</td>
-                                        <td>50</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nabin</td>
-                                        <td>40</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
+                        <p><strong>HIGH SCORES</strong> </p>
+                        <table id="highScoreTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody id="scoreBody">
+                                <tr>
+                                    <td>Milan</td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <td>Nabin</td>
+                                    <td>40</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
                         <button onclick="showModule('start-module')">Play Game</button>
                         <!-- <button>Highscores</button> -->
                     </div>

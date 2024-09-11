@@ -53,6 +53,7 @@ body {
     
     .title {
         width: 100%;
+        padding-bottom: 10px;
     }
     
     .timer {
@@ -295,4 +296,15 @@ input{
     justify-content: space-between;
     padding: 1rem;
     border-top: 1px rgb(107, 167, 178) solid;
+}
+
+#highScoreTable{
+    width: 400px;
+}
+
+#highScoreTable tr{
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0px;
+    border-bottom: 1px solid #6ba7b2;
 }

@@ -253,6 +253,23 @@ function saveHighScores(){
     
 }
 
+function viewHighScores(){
+    localHighScores = localStorage.getItem('quizHighScores');
+    highScores = JSON.parse(localHighScores) || [];
+
+    showModule('highscore-module');
+    const tBody = document.getElementById('scoreBody');
+    tBody.innerHTML = '';
+    for (highScore of highScores) {
+        const trElement = `<tr>
+                                <td>${highScore.name}</td>
+                                <td>${highScore.score}</td>
+                            </tr>`;
+        
+        tBody.innerHTML += trElement;
+    }
+}
+
 // function resetQuiz(){
 //     showModule('quiz-module');
 // }
