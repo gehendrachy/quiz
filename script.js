@@ -1,4 +1,4 @@
-const QUIZ_TIME = 60;
+const QUIZ_TIME_PER_QUESTION = 60; // In seconds
 const QUIZ_QUESTION_POINTS = 1;
 const PASS_PERCENT = 50;
 
