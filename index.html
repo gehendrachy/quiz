@@ -28,22 +28,17 @@
                 </div>
             </div>
             <div class="quiz-body"> 
-                <div class="quiz-overview">
-                    <p>Question 1/10</p>
-                    <p>
-                        Chances : 
-                        <span id="chance-icons">
-                            
-                        </span>
-                    </p>
-                </div>
+                
                 <div class="module" id="start-module">
                     <div class="quiz info">
-                        <p>
-                            <h2>Welcome to the Quiz! </h2> 
-                            You have 60 seconds to complete 10 questions, each worth 1 mark. To pass, you need at least 50%. Good luck!
-                        </p>
-                        <button onclick="startQuiz()">Start</button>
+                        <form action="javascript:void(0)" onsubmit="startQuiz(this)">
+                            <p>
+                                <h2>Welcome to the Quiz! </h2> 
+                                You have 10 seconds for each questions, worth 1 mark. Good luck!
+                            </p>
+                            <input type="text" name="name" required placeholder="Please Enter your name..">
+                            <button type="submit">Start</button>
+                        </form>
                     </div>
                 </div>
                 
@@ -61,7 +56,15 @@
                 </div>
                 
                 <div class="module" id="quiz-module">
-                    
+                    <div class="quiz-overview">
+                        <p>Question <span id="currentQuestionNo"></span></p>
+                        <p>
+                            Chances : 
+                            <span id="chance-icons">
+                                
+                            </span>
+                        </p>
+                    </div>
                     <div id="quiz-box">
                         <div id="quiz-question">
                             Which planet is the hottest in our solar system?
@@ -85,7 +88,7 @@
                             </li> -->
                         </ul>
                     </div>
-
+                    
                     <!-- <div id="submit-module">
                         <div class="quiz footer">
                             <button onclick="stopQuiz()">Submit</button>

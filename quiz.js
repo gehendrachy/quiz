@@ -6,19 +6,20 @@ const MAX_QUESTIONS = 5;
 const TOTAL_CHANCES = 3;
 
 let quiz = [];
-let timer = 0;
 let score = 0;
 let questionAttemped = 0;
 let alreadyAnswered = false;
 let availableQuestions = [];
 let totalChances = 0;
+let quizTimerID = 0;
 
 
 let timerAudio = document.getElementById('timerAudio');
 let cheerAudio = document.getElementById('cheerAudio');
 let booAudio = document.getElementById('booAudio');
 let chanceIconSpan = document.getElementById('chance-icons');
-// let quizBox = document.getElementById('quiz-box');
+let timerElement = document.getElementById('timer')
+let timerBox = document.getElementById('timer-box');
 
 let options = document.querySelectorAll('.options');
 
@@ -31,7 +32,7 @@ async function fetchQuizData(){
     const data = await response.json();
     
     questionAnswers = data.quiz;
-    startQuiz();
+    // startQuiz();
 }
 
 fetchQuizData();
@@ -49,9 +50,14 @@ function showModule(moduleId){
     }
 }
 
-showModule('quiz-module');
+showModule('start-module');
 
-const startQuiz = () => {
+const startQuiz = (myForm) => {
+
+    const formData = new FormData(myForm);
+    const name = formData.get('name');
+    // alert(name);
+
     score = 0;
     totalChances = TOTAL_CHANCES;
     
@@ -66,17 +72,20 @@ const startQuiz = () => {
 const getNewQuestion = () => {
     
     if(availableQuestions.length == 0 || questionAttemped >= MAX_QUESTIONS || totalChances <= 0){
-        console.log('end');
+        stopQuiz();
         return;
     }
-    
+
+    clearInterval(quizTimerID);
     timer = QUIZ_TIME_PER_QUESTION;
     
     let quizQuestion = document.getElementById('quiz-question');
     let quizAnswersUL = document.getElementById('quiz-answers');
+
+    let currentQuestionSpan = document.getElementById('currentQuestionNo');
+    currentQuestionSpan.innerHTML = (questionAttemped+1) + "/" + MAX_QUESTIONS;
     quizAnswersUL.innerHTML = "";
-    
-    
+      
     let questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     
@@ -119,6 +128,11 @@ const getNewQuestion = () => {
     questionAttemped++;
     // console.log("questions attemped = " + questionAttemped);
     
+    timer = QUIZ_TIME_PER_QUESTION;
+    timerElement.innerText = timer;
+    timerBox.style.display = "flex";
+    quizTimerID = setInterval(checkTimer, 1000);
+    
 }
 
 function checkAnswer(option){
@@ -137,15 +151,19 @@ function checkAnswer(option){
         
         // console.log(score);
     }else{
-        totalChances -= 1;
-        if(totalChances <= 0) alert('Game Over');
-        showChances(totalChances);
+        decreaseChances();
     }
     
     setTimeout(() => {
         option.classList.remove(resultClass);
         getNewQuestion();
     }, 700);
+}
+
+function decreaseChances(){
+    totalChances -= 1;
+    showChances(totalChances);
+    // if(totalChances <= 0) alert('Game Over');
 }
 
 function showChances(number){
@@ -158,4 +176,26 @@ function showChances(number){
     }
     
     chanceIconSpan.innerHTML = icons;
+    
+    
+}
+
+function checkTimer(){
+    timer -= 1;
+    timerElement.innerText = timer;
+    
+    // timerAudio.play();
+    
+    if(timer <= 0){
+        clearInterval(quizTimerID);
+        decreaseChances();
+        getNewQuestion();
+    }
+    
+}
+
+function stopQuiz(){
+    clearInterval(quizTimerID);
+    timerBox.style.display = "none";
+    showModule('score-module');
 }
