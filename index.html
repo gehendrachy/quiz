@@ -31,33 +31,23 @@
                 
                 <div class="module" id="start-module">
                     <div class="quiz info">
-                        <form action="javascript:void(0)" onsubmit="startQuiz(this)">
+                        <form action="javascript:void(0)" onsubmit="submitForm(this)">
+                            <h2>Welcome to the Quiz! </h2> 
                             <p>
-                                <h2>Welcome to the Quiz! </h2> 
+                                
                                 You have 10 seconds for each questions, worth 1 mark. Good luck!
                             </p>
                             <input type="text" name="name" required placeholder="Please Enter your name..">
                             <button type="submit">Start</button>
+                            <button type="button" onclick="viewHighScores()">HighScores</button>
                         </form>
-                    </div>
-                </div>
-                
-                <div class="module" id="score-module">
-                    <div class="quiz info">
-                        <p> 
-                            Your Score is
-                        </p>
-                        <span id="score">___</span>
-                        <p>
-                            You Have <span id="result">__</span>
-                        </p>
-                        <button onclick="resetQuiz()">Restart</button>
                     </div>
                 </div>
                 
                 <div class="module" id="quiz-module">
                     <div class="quiz-overview">
-                        <p>Question <span id="currentQuestionNo"></span></p>
+                        <p>Player : <span id="playerName"></span></p>
+                        <p>Question : <span id="currentQuestionNo"></span></p>
                         <p>
                             Chances : 
                             <span id="chance-icons">
@@ -88,12 +78,56 @@
                             </li> -->
                         </ul>
                     </div>
+                    <div class="score-overview">
+                        <p>Your Score : <span id="currentScore">0</span></p>
+                        <p>Highscore : <span id="highScore"></span></p>
+                    </div>
                     
                     <!-- <div id="submit-module">
                         <div class="quiz footer">
                             <button onclick="stopQuiz()">Submit</button>
                         </div>
                     </div> -->
+                </div>
+
+                <div class="module" id="score-module">
+                    <div class="quiz info">
+                        <p> 
+                            Your Score is
+                            <span id="score">___</span>
+                        </p>
+                        <button onclick="startQuiz()">Play Again</button>
+                        <button>Highscores</button>
+                    </div>
+                </div>
+
+                <div class="module" id="highscore-module">
+                    <div class="quiz info">
+                        <p> High Scores </p>
+                        <div class="highscore-details">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Milan</td>
+                                        <td>50</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nabin</td>
+                                        <td>40</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <button onclick="showModule('start-module')">Play Game</button>
+                        <!-- <button>Highscores</button> -->
+                    </div>
                 </div>
                 
             </div>

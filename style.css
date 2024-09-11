@@ -83,6 +83,7 @@ li {
     /* text-align: center; */
 }
 
+
 ul.quiz {
     text-align: center;
     padding: 0px;
@@ -97,6 +98,7 @@ ul.quiz {
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    padding: 10px;
     
     .module {
         display: block;
@@ -224,7 +226,7 @@ ul.quiz {
     }
     
     .quiz.footer,
-    .quiz.info form{
+    .quiz.info, .quiz.info > form{
         min-height: 80px;
         display: flex;
         align-items: center;
@@ -236,6 +238,9 @@ ul.quiz {
         p {
             text-align: center;
             font-size: 18px;
+            border-bottom: 1px #76b1bd solid;
+            width: 100%;
+            padding-bottom: 20px;
         }
         
         span {
@@ -244,15 +249,15 @@ ul.quiz {
         }
         
         button {
-            width: 100px;
+            min-width: 300px;
             background-color: rgb(15, 81, 94);
             padding: 10px;
-            border-radius: 10px;
+            border-radius: 7px;
             border: 0px;
             cursor: pointer;
             color: #a0c9d1;
             border: 1px rgb(15, 81, 94) solid;
-            font-size: 18px;
+            font-size: 16px;
             transition: cubic-bezier(.79,.14,.15,.86) all 0.5s
         }
         
@@ -281,4 +286,13 @@ input{
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    border-bottom: 1px rgb(107, 167, 178) solid;
+}
+
+.score-overview{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-top: 1px rgb(107, 167, 178) solid;
 }

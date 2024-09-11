@@ -1,8 +1,8 @@
-const QUIZ_TIME_PER_QUESTION = 10;  // in seconds
-const QUIZ_QUESTION_POINT = 1;
+const QUIZ_TIME_PER_QUESTION = 100;  // in seconds
+const QUIZ_QUESTION_POINT = 10;
 const PASS_PERCENT = 50;
 const BULLET_POINTS = ['A', 'B', 'C', 'D'];
-const MAX_QUESTIONS = 5;
+const MAX_QUESTIONS = 8;
 const TOTAL_CHANCES = 3;
 
 let quiz = [];
@@ -12,6 +12,7 @@ let alreadyAnswered = false;
 let availableQuestions = [];
 let totalChances = 0;
 let quizTimerID = 0;
+let playerName = "";
 
 
 let timerAudio = document.getElementById('timerAudio');
@@ -22,9 +23,16 @@ let timerElement = document.getElementById('timer')
 let timerBox = document.getElementById('timer-box');
 
 let options = document.querySelectorAll('.options');
+let highScoreSpan = document.getElementById('highScore');
+let currentScoreSpan = document.getElementById('currentScore');
+
+let localHighScores = localStorage.getItem('quizHighScores');
+let highScores = JSON.parse(localHighScores) || [];
+let currentHighScore = 0;
 
 let questionAnswers = [];
 let currentQuestion = {};
+
 
 
 async function fetchQuizData(){
@@ -52,20 +60,33 @@ function showModule(moduleId){
 
 showModule('start-module');
 
-const startQuiz = (myForm) => {
-
+const submitForm = (myForm) => {
+    
     const formData = new FormData(myForm);
-    const name = formData.get('name');
-    // alert(name);
+    playerName = formData.get('name');
+    const playerNameSpan = document.getElementById("playerName");
+    playerNameSpan.innerHTML = playerName;
+    startQuiz();
+}
+
+const startQuiz = () => {
+
+    currentHighScore = highScores.reduce((highScore, obj) => {
+        return Math.max(highScore, obj.score)
+      }, 0);
+    
+    highScoreSpan.innerText = currentHighScore;
 
     score = 0;
     totalChances = TOTAL_CHANCES;
+    questionAttemped = 0;
+    alreadyAnswered = false;
     
     showModule("quiz-module");
     showChances(totalChances);
     
     availableQuestions = [...questionAnswers];
-    // console.log(availableQuestions);
+    console.log(availableQuestions);
     getNewQuestion();
 }
 
@@ -148,7 +169,15 @@ function checkAnswer(option){
     
     if(selectedOption == currentQuestion['answer']){
         score += QUIZ_QUESTION_POINT;
-        
+        currentScoreSpan.innerText = score;
+
+        if(score > currentHighScore){
+            
+            // currentScoreSpan         
+            setInterval(function(){
+                currentScoreSpan.style.display = (currentScoreSpan.style.display == '' ? 'none' : '' );
+            }, 500);
+        }
         // console.log(score);
     }else{
         decreaseChances();
@@ -198,4 +227,32 @@ function stopQuiz(){
     clearInterval(quizTimerID);
     timerBox.style.display = "none";
     showModule('score-module');
+    
+    const scoreSpan = document.getElementById('score');
+    scoreSpan.innerText = score;
+
+    saveHighScores();
 }
+
+function saveHighScores(){
+    localHighScores = localStorage.getItem('quizHighScores');
+    highScores = JSON.parse(localHighScores) || [];
+
+    console.log(highScores);
+
+    const info = {
+        "name" : playerName,
+        "score" : score
+    }
+
+    highScores.push(info);
+    highScores.sort((a,b) => b.score - a.score);
+    highScores.splice(10);
+
+    localStorage.setItem('quizHighScores', JSON.stringify(highScores));
+    
+}
+
+// function resetQuiz(){
+//     showModule('quiz-module');
+// }
